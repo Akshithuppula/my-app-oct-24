@@ -1,0 +1,66 @@
+<p>flipkart works!</p>
+<hr>
+
+<label>Name : </label>
+<input type="text" [(ngModel)]="productname">
+<br>
+<label>Price : </label>
+<input type="number" [(ngModel)]="price">
+<br>
+<label>Rating : </label>
+<input type="number " [(ngModel)]="rating">
+<br>
+<label>Free Delivery : </label>
+<input type="radio" id="yes" name="hmm" value="true" [(ngModel)]="freedelivery"><label for="yes">YES</label> 
+<input type="radio" id="no" name="hmm" value="false" [(ngModel)]="freedelivery"><label for="no">NO</label>
+<br>
+<button (click)="add()" class="btn btn-success">Add to Cart</button> 
+
+<br>
+
+
+<!-- FiLTER -->
+<input type="text" placeholder="Search "  [(ngModel)]="term" (keyup)="search()">
+
+<button (click)="freed()">Only Free Delivery</button>
+
+
+<!-- SORT -->
+<button (click)="pricehl()" class="btn btn-warning">Price High to Low</button>
+<button (click)="pricelh()" class="btn btn-warning">Price low to high</button>
+<button (click)="ratinghl()" class="btn btn-warning">Rating high to low</button>
+<button (click)="ratinglh()" class="btn btn-warning">rating low to high</button>
+<hr>
+
+<!-- MAP -->
+<button (click)="discount()" class="btn btn-info">Apply 50k Discount</button>
+<button (click)="deliveryc()" class="btn btn-info">Price With Delivery Charges</button>
+<hr>
+
+<!-- Reduce -->
+ <button (click)="totalprice()" class="btn btn-secondary">Total Price</button>
+ <button (click)="cart()"   class="btn btn-secondary">Totall Cart Value</button>
+
+
+<table  class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sno</th>
+            <th>productname</th>
+            <th>price</th>
+            <th>rating</th>
+            <th>freedelivery</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products let i = index">
+            <td>{{i+1}}</td>
+            <td>{{product.productname}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.rating}}</td>
+            <td>{{product.freedelivery}}</td>
+            <td><button class="btn btn-danger" (click)="delete(i)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>

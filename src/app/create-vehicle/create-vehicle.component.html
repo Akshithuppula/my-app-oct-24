@@ -1,0 +1,39 @@
+
+<div class="parent">
+    <div class="child">
+        <form [formGroup]="vehicleForm">
+            <h2>Create vehicle Form</h2>
+
+            <label for="">vehicle : </label>      
+            <input type="text" formControlName="Vehicle">
+            <br>
+
+            <label for="">Manufacture : </label>      
+            <input type="text" formControlName="manufacture">
+            <br>
+
+            <label for="">Type : </label>      
+            <input type="text" formControlName="model">
+            <br>
+
+            <label for="">Fuel : </label>      
+            <input type="text" formControlName="fuel">
+            <br>
+
+            <label for="">Color : </label>      
+            <input type="text"  formControlName="color">
+            <br>
+
+            <label for="">Image : </label>      
+            <input type="text" formControlName="image">
+            <br>
+
+            <label for="">Cost : </label>      
+            <input type="text" formControlName="cost">
+            <br>
+
+            <button (click)="submit()"> Submit</button>
+
+        </form>     
+    </div>
+</div>

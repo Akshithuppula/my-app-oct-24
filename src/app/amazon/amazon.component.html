@@ -1,0 +1,13 @@
+<p>amazon works!</p>
+
+<div class="parent">
+    <div class="child" *ngFor="let product of products">
+        <img src="{{product.image}}" alt="" id="img">
+        <p id="rate">{{product.rating.rate}}</p>
+        <p id="cat">{{product.category}}</p>
+        <p id="tit">{{product.title}}</p>
+        <p id="pri"><span class="pri">Rs.{{product.price}}</span></p>
+
+ 
+    </div>
+</div>

@@ -1,0 +1,49 @@
+.parent{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+.left{
+    overflow: auto;
+    width: 20%;
+    height: 100%;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    /* text-align: ; */
+    position: relative; /* Important for positioning the button relative to the container */
+}
+h3{
+font-size: medium;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color: gray;
+cursor: pointer;
+}
+h3:hover{
+    width: 60%;
+    color: white;
+}
+
+.right{
+    width: 80%;
+    height: 100%;
+    background-color: aquamarine;
+    overflow: auto;
+}
+button{
+    /* overflow: auto; */
+    margin-top: 5%;
+    height: 6%;
+    width: 62%;
+    background-color: blueviolet;
+    border: 1px solid rgb(174, 114, 230);
+    border-radius: 13px;
+    box-shadow: 0px 0px 18px 2px whitesmoke;
+    color: white;    
+    /* font-family: var(--wb-font-text-bold); */
+    
+    
+}
+button:hover{
+    transform: scale(1.1);
+}
