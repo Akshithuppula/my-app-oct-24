@@ -1,4 +1,30 @@
-<p>account works!</p>
+
+<input type="text" placeholder="search" [(ngModel)]="term" (keyup)="filter()">
+
+<!-- Sorting -->
+<select [(ngModel)]="column">
+    <option>id</option>
+    <option>account_name</option>
+    <option>city</option>
+</select>
+<select [(ngModel)]="order">
+    <option>asc</option>
+    <option>desc</option>
+</select>
+<button (click)="sort()"  class="btn btn-primary">Sort</button>
+
+<!-- pagination -->
+ <select [(ngModel)]="limit">
+    <option>10</option>
+    <option>20</option>
+    <option>30</option>
+ </select>
+ <select [(ngModel)]="page">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+ </select>
+<button (click)="pagination()"  class="btn btn-primary">paginatin</button>
 
 <table class="table table-bordered">
     <thead>
@@ -9,6 +35,7 @@
             <th>city</th>
             <th>profie_picture</th>
             <th>id</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +48,9 @@
                 <img src="{{account.profie_picture}}" alt="" width="100px" >
             </td>
             <td>{{account.id}}</td>
+            <td>
+                <button (click)="delete(account.id)" class="btn btn-danger">delete</button>
+            </td>
         </tr>
     </tbody>
 </table>

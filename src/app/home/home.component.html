@@ -1,1 +1,28 @@
-<img src="/assets/home-img.jpeg" alt="" width="100%" height="100%">
+<!-- <img src="/assets/home-img.jpeg" alt="" width="100%" height="100%"> -->
+ <p>Home</p>
+
+ <mat-slide-toggle>Toggle me!</mat-slide-toggle>
+
+ <div matBadge="4" matBadgeOverlap="false" class="demo-section">Text with a badge</div>
+
+
+ <div class="demo-section">
+    Button toggles badge visibility
+    <button mat-raised-button matBadge="7" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
+        Hide
+    </button>
+  </div>
+<br>
+  <button mat-raised-button (click)="openBottomSheet()">Open file</button>
+<br>
+<section>
+    <div class="example-label">Raised</div>
+    <div class="example-button-row">
+      <button mat-raised-button>Basic</button>
+      <button mat-raised-button color="primary">Primary</button>
+      <button mat-raised-button color="accent">Accent</button>
+      <button mat-raised-button color="warn">Warn</button>
+      <button mat-raised-button disabled>Disabled</button>
+      <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+    </div>
+  </section>
