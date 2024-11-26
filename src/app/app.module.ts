@@ -24,7 +24,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccountComponent } from './account/account.component';
 import { AmazonComponent } from './amazon/amazon.component';
 import { CreateVehicleComponent } from './create-vehicle/create-vehicle.component';
-
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { StudentidComponent } from './studentid/studentid.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';;
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { DummyDisplayComponent } from './dummy-display/dummy-display.component';
+import {MatButtonModule} from '@angular/material/button';
+import { CreateUserComponent } from './create-user/create-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,13 +55,22 @@ import { CreateVehicleComponent } from './create-vehicle/create-vehicle.componen
     AccountComponent,
     AmazonComponent,
     CreateVehicleComponent,
+    CreateAccountComponent,
+    StudentidComponent,
+    DummyDisplayComponent,
+    CreateUserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
