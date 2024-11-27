@@ -1,0 +1,61 @@
+<br>
+<input type="text" [(ngModel)]="term" (keyup)="filter()">
+
+<!-- Sorting -->
+ <select [(ngModel)]="column">
+    <option>name</option>
+    <option>phone</option>
+    <option>city</option>
+    <option>dob</option>
+
+ </select>
+ <select  [(ngModel)]="order">
+    <option>asc</option>
+    <option>desc</option>
+ </select>
+ <button (click)="sort()">sort</button>
+
+ <select [(ngModel)]="limit">
+    <option>10</option>
+    <option>20</option>
+    <option>30</option>
+ </select>
+ <select [(ngModel)]="page">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+ </select>
+ <button (click)="pagination()">pagination</button>
+
+<br><br>
+<div class="main">
+    <div class="child" *ngFor="let student of students">
+        <div class="top">
+            <div class="top-left">
+                <img src="{{student.school_logo}}" class="img">
+            </div>
+            <div class="top-right">
+                <h5>{{student.school_name}}</h5>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="middle-left">
+                <p>name:{{student.name}}</p>
+                <p>Phone :{{student.phone}}</p>
+                <p>City :{{student.city}}</p>
+                <p>DOB:{{student.dob}}</p>
+                <p>EMAIL:{{student.email}}</p>
+            </div>
+            <div class="middle-right">
+                <img src="{{student.profile_picture}}" alt="" width="100px">
+                <h5>Principal: </h5>
+            </div>
+        </div>
+        <div class="bottom">
+            <p>School City :{{student.school_city}}</p>
+            <p>School PIN No :{{student.school_pin}}</p>
+            <button (click)="delete(student.id)" id="idbutton">delete</button>
+
+        </div>
+    </div>
+</div>

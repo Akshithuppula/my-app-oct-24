@@ -1,0 +1,111 @@
+<p>create-user works!</p>
+
+<form  [formGroup]="userForm">
+
+    <label for="">Name: </label>
+    <input type="text" formControlName="name">
+    <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid">
+        <p class="error" *ngIf="userForm.get('name')?.errors?.['required']">Name is required</p>
+        <p class="error" *ngIf="userForm.get('name')?.errors?.['minlength']">Minimum 3 cherecters</p>
+        <p class="error" *ngIf="userForm.get('name')?.errors?.['maxlength']">MAx 10 charecter only</p>
+    </div>
+    <br>
+
+    
+    <label for="">Age:</label>
+    <input type="number" formControlName="age">
+    <div *ngIf="userForm.get('age')?.touched && userForm.get('age')?.invalid">
+        <p class="error" *ngIf="userForm.get('age')?.errors?.['required']">Age is required</p>
+        <p class="error" *ngIf="userForm.get('age')?.errors?.['min']">Minimum 18 years</p>
+        <p class="error" *ngIf="userForm.get('age')?.errors?.['max']">MAx 60 years</p>
+    </div>
+    <br>
+
+    <label for="">Email: </label>
+    <input type="text" formControlName="email">
+    <br>
+
+    <label for="">Phone :</label>
+    <input type="number" formControlName="phone">
+    <div *ngIf="userForm.get('phone')?.touched && userForm.get('phone')?.invalid">
+        <p class="error" *ngIf="userForm.get('phone')?.errors?.['required']">Pincode is required</p>
+        <p class="error" *ngIf="userForm.get('phone')?.errors?.['min']">Minimum 1000000000 numbers</p>
+        <p class="error" *ngIf="userForm.get('phone')?.errors?.['max']">max 6 numbers</p>
+    </div>
+    <br>
+
+<!-- Nested Forms -->
+    <div formGroupName="address">
+
+        <label for="">City:</label>
+        <input type="text" formControlName="city">
+        <div *ngIf="userForm.get('address')?.get('city')?.touched && userForm.get('address')?.get('city')?.invalid">
+            <p class="error" *ngIf="userForm.get('address')?.get('city')?.errors?.['required']">city is required</p>
+        </div>
+        <br>
+
+        <label for="">Pin:</label>
+        <input type="text" formControlName="city">
+        <br>
+
+    </div>
+
+    <label for="">Type: </label>
+    <input type="radio" name="type" formControlName="type" value="dayScholor">
+    <label for="">DayScholor:</label>
+    <input type="radio" name="type" formControlName="type" value="residential">
+    <label for="">Residential:</label>
+    <br>
+
+
+    <!-- Dyanamic Forms -->
+    <div *ngIf="userForm.get('type')?. value=='dayScholor'">
+        <label for="">Bus Fee:</label>
+        <input type="number" formControlName="busFee">
+        <br>
+    </div>
+
+    <div *ngIf="userForm.get('type')?.value=='residential'">
+        <label for="">Hostel Fee:</label>
+        <input type="number" formControlName="hostelfee">
+        <br>
+        </div>
+
+        <label for="">Cards: </label>
+        <button (click)="addCard()">Add Cards</button>
+        <br><br>
+
+        <!-- FORM ARRAY -->
+        <div formArrayName="cards">
+            <div *ngFor="let card of cardsFormArray.controls; let i=index">
+                <div formGroupName="{{i}}">
+
+                    <h2>Card {{i+1}}</h2>
+
+                    <label for="">Number:</label>
+                    <input type="number"  formControlName="number">
+                    <div *ngIf="cardsFormArray.controls[i].get('number')?.touched && cardsFormArray.controls[i]?.get('number')?.invalid">
+                        <p class="error" *ngIf="cardsFormArray.controls[i]?.get('number')?.errors?.['required']">Number is required</p>
+                    </div>
+                    <br>
+
+                    <label for="">Expiry:</label>
+                    <input type="month"  formControlName="expiry">
+                    <br>
+
+                    <label for="">Cvv:</label>
+                    <input type="number"  formControlName="cvv">
+                    <br>
+
+
+                    <button class="btn btn-danger" (click)="deleteCard(i)" >Delete</button>
+
+                    <hr>
+
+                </div>
+            </div>
+        </div>
+
+    <button (click)="submit()" class="btn btn-warning">Submit</button>
+
+</form>

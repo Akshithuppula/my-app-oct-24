@@ -1,0 +1,114 @@
+<p>create-student works!</p>
+
+<form action="" [formGroup]="studentForm">
+
+    <label for="">Name:</label>
+    <input type="text"  formControlName="name">
+    <br>
+
+    <label for="">Class :</label>
+    <input type="number" formControlName="class">
+    <br>
+
+    <label for="">Father Name:</label>
+    <input type="text" formControlName="fatherNAme">
+    <br>
+
+    <label for="">email :</label>
+    <input type="email" formControlName="email">
+    <div *ngIf="studentForm.get('email')?.touched && studentForm.get('email')?.invalid">
+        <p class="error" *ngIf="studentForm.get('email')?.errors?.['required']">email is required</p>
+        <p class="error" *ngIf="studentForm.get('email')?.errors?.['email']">Invalid email format</p>
+    </div>
+    <br>
+
+    <label for="">phone:</label>
+    <input type="number" formControlName="phone">
+    <div *ngIf="studentForm.get('phone')?.touched && studentForm.get('phone')?.invalid">
+        <p class="error" *ngIf="studentForm.get('phone')?.errors?.['required']">Pincode is required</p>
+        <p class="error" *ngIf="studentForm.get('phone')?.errors?.['min']">Minimum 1000000000 numbers</p>
+        <p class="error" *ngIf="studentForm.get('phone')?.errors?.['max']">max 6 numbers</p>
+    </div>
+    <br>
+
+    <div formGroupName="address">
+        <label for="">addressLine:</label>
+        <input type="text" formControlName="address">
+        <br>
+
+        <label for="">City:</label>
+        <input type="text" formControlName="city">
+        <div *ngIf="studentForm.get('address')?.get('city')?.touched && studentForm.get('address')?.get('city')?.invalid">
+            <p class="error" *ngIf="studentForm.get('address')?.get('city')?.errors?.['required']">city is required</p>
+        </div>
+        <br>
+
+        <label for="">State:</label>
+        <input type="text" formControlName="state">
+        <br>
+
+        <label for="">Pincode:</label>
+        <input type="number" formControlName="pincode">
+        <div *ngIf="studentForm.get('address.pincode')?.touched && studentForm.get('address.pincode')?.invalid">
+            <p class="error" *ngIf="studentForm.get('address.pincode')?.errors?.['required']">Pincode is required</p>
+            <p class="error" *ngIf="studentForm.get('address.pincode')?.errors?.['min']">Minimum 3 numbers</p>
+            <p class="error" *ngIf="studentForm.get('address.pincode')?.errors?.['max']">max 6 numbers</p>
+        </div>
+        <br>
+    </div>
+
+        <div>
+            <label for="">Type:</label>
+            <input type="radio" name="type" formControlName="type" value="dayScholor" >
+            <label for="">dayScholor</label>
+            <input type="radio" name="type" formControlName="type" value="residentail">
+            <label for="">residentail</label>
+        </div>
+
+        <div *ngIf="studentForm.get('type')?.value=='dayScholor'">
+            <label for="">BusFee:</label>
+            <input type="number" formControlName="busFee">
+            <br>
+        </div>
+
+        <div *ngIf="studentForm.get('type')?.value=='residentail'">
+            <label for="">Hostel Fee:</label>
+            <input type="number" formControlName="hostelfee">
+            <br>
+        </div>
+
+        <label for="">Marks:</label>
+        <button class="btn btn-info" (click)="addmarks()">Add Marks</button>
+
+        <div formArrayName="marks">
+            <div *ngFor="let mark of marksFormArray.controls; let i=index">
+                <div formGroupName="{{i}}">
+
+                    <h2>Marks {{i+1}}</h2>
+
+                    <label for="">class:</label>
+                    <input type="number" formControlName="class">
+                    <br>
+
+                    <label for="">Year:</label>
+                    <input type="number" formControlName="year">
+                    <br>
+
+                    <label for="">Percentage:</label>
+                    <input type="number" formControlName="percentage">
+                    <br>
+
+                    <button class="btn btn-danger" (click)="delete(i)">delete</button>
+
+                    <hr>
+
+                </div>
+            </div>
+        </div>
+
+
+        <button class="btn btn-warning" (click)="submit()">submit</button>
+
+
+
+</form>
