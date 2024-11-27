@@ -33,6 +33,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { DummyDisplayComponent } from './dummy-display/dummy-display.component';
 import {MatButtonModule} from '@angular/material/button';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { CreateStudentComponent } from './create-student/create-student.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
     StudentidComponent,
     DummyDisplayComponent,
     CreateUserComponent,
+    CreateStudentComponent,
   ],
   imports: [
     BrowserModule,
