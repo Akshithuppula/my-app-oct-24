@@ -3,11 +3,11 @@
     <form [formGroup]="loginForm">
 
         <label for="">Email:</label>
-        <input type="email" formControlName="email">
+        <input type="email" formControlName="email" placeholder="eve.holt@reqres.in">
         <br>
 
         <label for="">password:</label>
-        <input type="password" formControlName="password">
+        <input type="password" formControlName="password" placeholder="cityslicka">
         <br>
 
         <button (click)="login()">Login</button>
