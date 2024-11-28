@@ -24,6 +24,8 @@ login(){
       alert("Login Success!!!");
       // go to dashbord
       this._router.navigateByUrl("/dashboard");
+      // store token
+      sessionStorage.setItem('token',data.token);
     },
     (err:any)=>{
       alert("Invalid Credentials");
